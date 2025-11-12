@@ -3,7 +3,6 @@ BFV Homomorphic Encryption Assignment
 This script performs homomorphic addition using the BFV encryption scheme.
 """
 
-import os
 import tenseal as ts
 from pathlib import Path
 from typing import Tuple
