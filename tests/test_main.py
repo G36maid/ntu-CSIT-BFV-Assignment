@@ -1,19 +1,21 @@
 import os
-import sys
-import pytest
-import tempfile
 import shutil
+import sys
+import tempfile
+
+import pytest
 
 # Add src directory to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 try:
     import tenseal as ts
+
     from main import (
-        extract_last_five_digits,
         encrypt_student_number,
-        perform_homomorphic_addition,
+        extract_last_five_digits,
         main,
+        perform_homomorphic_addition,
     )
 
     TENSEAL_AVAILABLE = True

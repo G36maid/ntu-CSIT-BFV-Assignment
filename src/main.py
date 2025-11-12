@@ -3,10 +3,9 @@ BFV Homomorphic Encryption Assignment
 This script performs homomorphic addition using the BFV encryption scheme.
 """
 
-import tenseal as ts
 from pathlib import Path
-from typing import Tuple
 
+import tenseal as ts
 
 # Configuration
 DOWNLOAD_DIR = Path(__file__).parent.parent / "download"
@@ -14,7 +13,7 @@ DOWNLOAD_DIR = Path(__file__).parent.parent / "download"
 
 def load_files(
     student_id: str, download_dir: Path = DOWNLOAD_DIR
-) -> Tuple[bytes, bytes]:
+) -> tuple[bytes, bytes]:
     """
     Load the public key and TA's ciphertext from files.
 
@@ -120,7 +119,7 @@ def main() -> int:
         student_id_path = project_root / "student-id.txt"
 
         # Read student ID from file
-        with open(student_id_path, "r") as f:
+        with open(student_id_path) as f:
             student_id = f.read().strip()
 
         print(f"Student ID: {student_id}")
@@ -167,7 +166,8 @@ def main() -> int:
         print(f"  - {project_root}/student-id.txt")
         print(f"  - {project_root}/download/public.key")
         print(
-            f"  - {project_root}/download/ntnu_[student_id].tenseal or [student_id].tenseal"
+            f"  - {project_root}/download/ntnu_[student_id].tenseal "
+            f"or [student_id].tenseal"
         )
         return 1
     except Exception as e:
