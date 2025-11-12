@@ -3,7 +3,6 @@ BFV Homomorphic Encryption Assignment
 This script performs homomorphic addition using the BFV encryption scheme.
 """
 
-import os
 import tenseal as ts
 from pathlib import Path
 from typing import Tuple
@@ -91,9 +90,7 @@ def encrypt_student_number(context: ts.Context, student_number: int) -> ts.BFVVe
     return ts.bfv_vector(context, [student_number])
 
 
-def perform_homomorphic_addition(
-    ciphertext1: ts.BFVVector, ciphertext2: ts.BFVVector
-) -> ts.BFVVector:
+def perform_homomorphic_addition(ciphertext1: ts.BFVVector, ciphertext2: ts.BFVVector):
     """
     Perform homomorphic addition between two ciphertexts.
 
@@ -105,26 +102,6 @@ def perform_homomorphic_addition(
         The homomorphic sum of the two ciphertexts
     """
     return ciphertext1 + ciphertext2
-
-
-def save_result(result_ciphertext: ts.BFVVector, student_id: str) -> str:
-    """
-    Serialize and save the result ciphertext to a file.
-
-    Args:
-        result_ciphertext: The encrypted result to save
-        student_id: The student's ID string (used for filename)
-
-    Returns:
-        The output filename
-    """
-    result_data = result_ciphertext.serialize()
-    output_filename = f"{student_id}_enc_result.tenseal"
-
-    with open(output_filename, "wb") as f:
-        f.write(result_data)
-
-    return output_filename
 
 
 def main() -> int:

@@ -10,11 +10,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 try:
     import tenseal as ts
     from main import (
-        load_files,
         extract_last_five_digits,
         encrypt_student_number,
         perform_homomorphic_addition,
-        save_result,
         main,
     )
 

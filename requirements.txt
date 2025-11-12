@@ -1,3 +1,5 @@
 tenseal
 numpy
 pytest
+black
+ruff
